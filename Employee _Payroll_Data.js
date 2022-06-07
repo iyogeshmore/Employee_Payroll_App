@@ -1,4 +1,4 @@
-// <!-- UC 9 -  On Form Submit populate the Employee Payroll Data -->
+// <!-- UC 1 – Employee Payroll Class with New Attributes. -->
 
 class EmployeePayrollData {
 
@@ -10,12 +10,15 @@ class EmployeePayrollData {
         this.salary = params[4];
         this.startDate = params[5];
         this.notes = params[6];
+        this.id = params[7];
     }
 
-// <!-- UC 10 -  Perform Validation Employee Payroll Data setter methods :
-// Name - Name must starts with Cap and has minimum 3 characters
-// Start Date Must not be future date. As well as should be within 30 days of joining. -->
-
+    get id() {
+        return this.id;
+    }
+    set id(id) {
+        this._id = id;
+    }
     get name() {
         return this._name;
     }
@@ -41,11 +44,7 @@ class EmployeePayrollData {
     }
 
     set gender(gender) {
-        let genderRegex = RegExp('^[female|male]+$');
-        if (genderRegex.test(gender))
-            this._gender = gender;
-        else
-            throw "**** GENDER is Incorrect ****";
+        this._gender = gender;
     }
 
     get department() {
@@ -61,11 +60,7 @@ class EmployeePayrollData {
     }
 
     set salary(salary) {
-        let salaryRegx = RegExp('^[1-9][0-9]*$');
-        if (salaryRegx.test(salary))
-            this._salary = salary;
-        else
-            throw "**** SALARY is Incorrect ****";
+        this._salary = salary;
 
     }
 
@@ -74,7 +69,8 @@ class EmployeePayrollData {
     }
 
     set startDate(startDate) {
-        this._startDate = startDate;
+            this._startDate = startDate;
+
     }
 
     get notes() {
