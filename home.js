@@ -1,3 +1,5 @@
+// Day 45 -UC 6 – Display Employee Details from Local Storage
+
 let employeePayrollList;
 window.addEventListener('DOMContentLoaded', (event) => {
     employeePayrollList = getEmployeePayrollDataFromStorage();
