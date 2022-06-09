@@ -35,7 +35,8 @@ month.addEventListener("input", validateDate);
 year.addEventListener("input", validateDate);
 
 function validateDate() {
-let startDate = Date.parse(
+let startDate = 
+Date.parse(
     year.value + "-" + month.value + "-" + date.value
 );
 try {
@@ -70,15 +71,18 @@ const createEmployeePayroll = () => {
         throw e;
     }
     
+    employeePayrollData.id = Math.random(); // Generate random id
     employeePayrollData.profileImage = getSelectedValues('[name=profile]').pop();
     employeePayrollData.gender = getSelectedValues('[name=gender]').pop();
     employeePayrollData.department = getSelectedValues('[name=department]');
     employeePayrollData.salary = getInputValueById("#salary");
     employeePayrollData.notes = getInputValueById("#notes");
-    
-    let date = getInputValueById("#year") + "-" + getInputValueById("#month") + "-" + getInputValueById("#day");
-    employeePayrollData.date = Date.parse(date); 
-    
+    employeePayrollData.day = getInputValueById("#day");
+    employeePayrollData.month = getInputValueById("#month");
+    employeePayrollData.year = getInputValueById("#year");
+    var fullDate = employeePayrollData.day + " "+employeePayrollData.month + " "+employeePayrollData.year;
+    employeePayrollData.fullDate =fullDate;
+
     alert(employeePayrollData.toString());
     return employeePayrollData;
     }
@@ -123,7 +127,7 @@ const createEmployeePayroll = () => {
         setTextValue('.salary-output', 300000);
         setValue('#day', '1');
         setValue('#month', 'January');
-        setValue('#year', '2021');
+        setValue('#year', '2022');
         setValue('#notes', '');
     }
 
